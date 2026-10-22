@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aluguel de brinquedos para festas em Chapecó e região. Mais de 200 clientes atendidos. Combos a partir de R$ 100,00.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Divertidos Brinquedos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap">
+<style>
+/* Layout: base branca e limpa, faixas de cor primária em blocos (azul, vermelho, amarelo), listra tricolor como assinatura, logo em letras coloridas */
+:root{
+  --bg:#ffffff; --soft:#f4f7fc; --ink:#15264d; --muted:#4d5b7c; --line:#e3e8f2;
+  --blue:#1565d8; --blue-deep:#0f4fb0; --red:#e52b2b; --yellow:#ffcc1f; --green:#22a94a; --orange:#ff8a1f; --purple:#7b4ad6;
+  --display:"Baloo 2","Arial Rounded MT Bold",system-ui,sans-serif;
+  --body:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+h1,h2,h3{font-family:var(--display);line-height:1.05;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-weight:800;text-decoration:none;border-radius:14px;padding:.85em 1.45em;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:focus-visible,a:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.btn-main{background:var(--red);color:#fff;box-shadow:0 5px 0 #a91717}
+.btn-main:hover{box-shadow:0 7px 0 #a91717}
+.btn-ghost{background:#fff;color:var(--blue);box-shadow:0 5px 0 #c9d8f3}
+.stripe{height:8px;background:linear-gradient(90deg,var(--red) 0 33.3%,var(--yellow) 33.3% 66.6%,var(--blue) 66.6%)}
+
+.word{font-family:var(--display);font-weight:800}
+.word span:nth-child(6n+1){color:var(--blue)}.word span:nth-child(6n+2){color:var(--red)}.word span:nth-child(6n+3){color:var(--yellow)}.word span:nth-child(6n+4){color:var(--green)}.word span:nth-child(6n+5){color:var(--orange)}.word span:nth-child(6n){color:var(--purple)}
+.logo .word-y{ }
+
+header{background:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;box-shadow:0 2px 14px #15264d14}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
+.logo{text-decoration:none;font-size:1.5rem;line-height:1;-webkit-text-stroke:.4px #15264d33}
+.nav ul{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0;font-weight:800;font-size:.95rem}
+.nav ul a{text-decoration:none;color:var(--ink)}
+.nav ul a:not(.btn):hover{color:var(--blue)}
+.nav .btn{padding:.55em 1.1em;font-size:.9rem;box-shadow:0 4px 0 #a91717}
+@media (max-width:820px){.nav ul li:not(:last-child){display:none}}
+@media (max-width:420px){.nav ul{display:none}}
+
+/* hero azul */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.hero::before{width:420px;height:420px;right:-120px;top:-140px;background:var(--blue-deep)}
+.hero::after{width:180px;height:180px;left:-60px;bottom:-70px;background:var(--yellow);opacity:.95}
+.hero .dots{position:absolute;inset:0;pointer-events:none;background:
+  radial-gradient(circle at 8% 22%,var(--red) 0 9px,transparent 10px),
+  radial-gradient(circle at 46% 12%,var(--yellow) 0 7px,transparent 8px),
+  radial-gradient(circle at 56% 86%,var(--green) 0 10px,transparent 11px),
+  radial-gradient(circle at 36% 58%,#ffffff33 0 5px,transparent 6px),
+  radial-gradient(circle at 94% 78%,var(--orange) 0 8px,transparent 9px)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-block:60px 72px}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--yellow)}
+.hero .eyebrow{color:var(--yellow)}
+.hero p.lead{font-size:1.15rem;max-width:38ch;margin-top:18px;color:#e4edff}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+.burst{justify-self:center;width:min(100%,340px);max-width:100%;aspect-ratio:1;position:relative;display:grid;place-content:center;text-align:center;animation:pop .7s cubic-bezier(.3,1.6,.5,1) both}
+.burst::before{content:"";position:absolute;inset:0;background:var(--yellow);
+  clip-path:polygon(50% 0%,57% 12%,69% 4%,72% 18%,86% 14%,83% 28%,97% 30%,89% 42%,100% 50%,89% 58%,97% 70%,83% 72%,86% 86%,72% 82%,69% 96%,57% 88%,50% 100%,43% 88%,31% 96%,28% 82%,14% 86%,17% 72%,3% 70%,11% 58%,0% 50%,11% 42%,3% 30%,17% 28%,14% 14%,28% 18%,31% 4%,43% 12%);transform:rotate(-6deg)}
+.burst>*{position:relative}
+.burst .big{font-family:var(--display);font-weight:800;font-size:clamp(4.4rem,10.5vw,7rem);line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
+.burst .small{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;color:var(--ink);margin-top:4px}
+@keyframes pop{from{transform:scale(.9)}to{transform:scale(1)}}
+@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.burst{width:min(80%,290px)}}
+
+.ribbon{background:var(--yellow);color:var(--ink);text-align:center;padding-block:14px;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.5rem)}
+.ribbon b{color:var(--red)}
+
+section{padding-block:76px}
+.head{display:grid;gap:10px;margin-bottom:38px;max-width:640px}
+.head h2{font-size:clamp(2rem,4.4vw,3rem);font-weight:800}
+.head p{color:var(--muted)}
+
+/* combo */
+.combo .wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.combo figure{margin:0;border-radius:24px;overflow:hidden;box-shadow:14px 14px 0 var(--yellow),-10px -10px 0 var(--blue);max-width:100%;transform:rotate(-1.5deg)}
+.combo figure img{display:block;width:100%;height:auto}
+.combo h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800}
+.combo h2 .plus{color:var(--blue)}.combo h2 .super{color:var(--red)}
+.price{display:inline-grid;margin-top:18px;background:var(--yellow);color:var(--red);font-family:var(--display);font-weight:800;border-radius:16px;padding:8px 22px;transform:rotate(-2deg)}
+.price small{font-size:.85rem;color:var(--ink);letter-spacing:.12em;text-transform:uppercase}
+.price strong{font-size:2.6rem;line-height:1}
+.checks{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:10px;font-weight:700;font-size:1.08rem}
+.checks li{display:flex;gap:10px;align-items:flex-start}
+.checks li::before{content:"✓";flex:none;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem;margin-top:2px}
+@media (max-width:820px){.combo .wrap{grid-template-columns:1fr}.combo figure{margin-inline:10px}}
+
+/* brinquedos */
+#brinquedos{background:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.toy{--c:var(--blue);background:#fff;border-radius:20px;display:grid;grid-template-rows:auto 1fr;overflow:hidden;box-shadow:0 6px 0 var(--c),0 10px 26px #15264d12;transition:transform .15s}
+.toy:hover{transform:translateY(-4px)}
+.toy:nth-child(6n+1){--c:var(--blue)}.toy:nth-child(6n+2){--c:var(--red)}.toy:nth-child(6n+3){--c:var(--yellow)}.toy:nth-child(6n+4){--c:var(--green)}.toy:nth-child(6n+5){--c:var(--orange)}.toy:nth-child(6n){--c:var(--purple)}
+.toy .art{height:140px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,#fff)}
+.toy .txt{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.toy h3{font-size:1.35rem;font-weight:800}
+.toy p{color:var(--muted);font-size:.95rem}
+.toy .tag{justify-self:start;margin-top:6px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--c);padding:3px 10px;border-radius:999px}
+.toy:nth-child(6n+3) .tag{color:var(--ink)}
+
+
+/* ofertas */
+.offers{background:var(--soft)}
+.ogrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.offer{--c:var(--blue);background:#fff;border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;box-shadow:0 6px 0 var(--c),0 12px 28px #15264d14;transition:transform .15s;min-width:0}
+.offer:hover{transform:translateY(-4px)}
+.offer:nth-child(6n+2){--c:var(--red)}.offer:nth-child(6n+3){--c:var(--yellow)}.offer:nth-child(6n+4){--c:var(--green)}.offer:nth-child(6n+5){--c:var(--orange)}.offer:nth-child(6n){--c:var(--purple)}.offer:nth-child(7){--c:var(--blue)}
+.offer figure{margin:0;aspect-ratio:3/2;max-width:100%;overflow:hidden}
+.offer figure img{display:block;width:100%;height:100%;object-fit:cover}
+.otxt{padding:20px 22px 24px;display:grid;gap:4px;align-content:start}
+.otxt .btn{justify-self:start;margin-top:auto}
+.oeyebrow{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.otxt h3{font-size:1.5rem;font-weight:800}
+.oprice{font-family:var(--display);font-weight:800;font-size:2.4rem;line-height:1.1;color:var(--red);font-variant-numeric:tabular-nums}
+.oprice small{font-size:1.1rem;color:var(--ink);margin-inline:2px}
+.offer .checks{margin:12px 0 18px;font-size:.98rem;gap:7px}
+.offer .checks li::before{width:22px;height:22px;font-size:.78rem}
+.offer.featured{grid-column:1/-1;grid-template-columns:1.25fr 1fr;grid-template-rows:auto;--c:var(--red)}
+.offer.featured figure{aspect-ratio:auto;height:100%}
+.offer.featured .otxt{padding:32px;align-content:center}
+.offer.featured h3{font-size:clamp(1.9rem,4vw,2.8rem)}
+.offer.featured .oprice{font-size:3.4rem}
+.offer.featured .oeyebrow{color:var(--red)}
+.offer.featured::before{content:"Mais completo";position:absolute;margin:14px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;z-index:1}
+.offer.featured{position:relative}
+@media (max-width:960px){.ogrid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.ogrid{grid-template-columns:1fr}.offer.featured{grid-template-columns:1fr}.offer.featured figure{aspect-ratio:3/2;height:auto}.offer.featured .otxt{padding:22px}}
+
+/* prova vermelha */
+.proof{background:var(--red);color:#fff}
+.proof .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
+.proof .num{font-family:var(--display);font-weight:800;font-size:clamp(5rem,14vw,9rem);line-height:.85;color:var(--yellow);font-variant-numeric:tabular-nums;text-shadow:5px 5px 0 #a91717}
+.proof h2{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:800}
+.proof p{margin-top:10px;color:#ffe3e3;max-width:52ch}
+@media (max-width:720px){.proof .wrap{grid-template-columns:1fr;gap:16px}}
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{counter-increment:s;display:grid;gap:8px;align-content:start;min-width:0}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:1.5rem;width:54px;height:54px;border-radius:16px;display:grid;place-items:center;color:#fff;transform:rotate(-4deg)}
+.steps li:nth-child(1)::before{background:var(--blue)}.steps li:nth-child(2)::before{background:var(--red)}.steps li:nth-child(3)::before{background:var(--yellow);color:var(--ink)}.steps li:nth-child(4)::before{background:var(--green)}
+.steps h3{font-size:1.3rem;font-weight:800}
+.steps p{color:var(--muted);font-size:.97rem}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* contato */
+.contact{background:var(--blue);color:#fff}
+.contact .eyebrow{color:var(--yellow)}
+.contact .head p{color:#e4edff}
+.contact .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+.contact .card{background:#fff;color:var(--ink);border-radius:22px;padding:28px;display:grid;gap:16px;box-shadow:10px 10px 0 var(--yellow)}
+.row{display:grid;gap:2px}
+.row span{font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.row strong{font-size:1.1rem}
+@media (max-width:820px){.contact .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:#c6d0e6;padding-block:26px;font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="logo word" href="#inicio" aria-label="Divertidos Brinquedos, início"><span>D</span><span>i</span><span>v</span><span>e</span><span>r</span><span>t</span><span>i</span><span>d</span><span>o</span><span>s</span> <span>B</span><span>r</span><span>i</span><span>n</span><span>q</span><span>u</span><span>e</span><span>d</span><span>o</span><span>s</span></a>
+    <ul>
+      <li><a href="#combo">Combos e preços</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#contato">Contato</a></li>
+      <li><a class="btn btn-main" href="#contato">Reservar</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<div class="hero" id="inicio">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Aluguel de brinquedos · Chapecó e região</p>
+      <h1>A festa fica <em>mais divertida</em> quando o brinquedo chega montado.</h1>
+      <p class="lead">Cama elástica, piscina de bolinhas, escorregador, cavalinhos e muito mais para aniversários, escolas e eventos. Você escolhe, a gente entrega, monta e busca.</p>
+      <div class="ctas">
+        <a class="btn btn-main" href="#contato">Reservar pelo WhatsApp</a>
+        <a class="btn btn-ghost" href="#combo">Ver combos e preços</a>
+      </div>
+    </div>
+    <div class="burst" role="img" aria-label="Mais de 200 clientes atendidos">
+      <div class="big">+200</div>
+      <div class="small">clientes atendidos</div>
+    </div>
+  </div>
+</div>
+<div class="stripe" aria-hidden="true"></div>
+<div class="ribbon">Combos a partir de <b>R$ 100,00</b> · Plus Super Combo por <b>R$ 200,00</b></div>
+
+<section class="offers" id="combo">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Combos e preços</p>
+      <h2>Escolha o combo da sua festa</h2>
+      <p>Valores de aluguel com entrega, montagem e retirada combinadas no WhatsApp. Consulte a disponibilidade da sua data.</p>
+    </div>
+    <div class="ogrid">
+      <article class="offer featured">
+        <figure><img src="combos/plus-super-combo.jpg" alt="Arte da oferta Plus ✶ Super Combo, R$ 200,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">O combo mais completo</p>
+          <h3>Plus ✶ Super Combo</h3>
+          <p class="oprice"><small>R$</small>200<small>,00</small></p>
+          <ul class="checks"><li>Cama elástica</li><li>Piscina de bolinhas</li><li>Escorregador</li><li>Cavalinhos de balanço</li><li>Saco com bolinhas coloridas</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Plus ✶ Super Combo">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/max-super-combo.jpg" alt="Arte da oferta Max ✶ Super Combo, R$ 180,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Cama + piscina</p>
+          <h3>Max ✶ Super Combo</h3>
+          <p class="oprice"><small>R$</small>180<small>,00</small></p>
+          <ul class="checks"><li>Cama elástica</li><li>Piscina de bolinhas</li><li>Saco com bolinhas coloridas</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Max ✶ Super Combo">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/super-combo-piscina.jpg" alt="Arte da oferta Super Combo Piscina, R$ 150,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Para os pequenos</p>
+          <h3>Super Combo Piscina</h3>
+          <p class="oprice"><small>R$</small>150<small>,00</small></p>
+          <ul class="checks"><li>Piscina de bolinhas</li><li>Escorregador</li><li>Gangorra baleia</li><li>Minhoca e cavalinho de balanço</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Super Combo Piscina">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/super-combo-cama.jpg" alt="Arte da oferta Super Combo Cama Elástica, R$ 150,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Pula-pula + balanços</p>
+          <h3>Super Combo Cama Elástica</h3>
+          <p class="oprice"><small>R$</small>150<small>,00</small></p>
+          <ul class="checks"><li>Cama elástica</li><li>Escorregador</li><li>Gangorra baleia</li><li>Minhoca e cavalinho de balanço</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Super Combo Cama Elástica">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/duas-camas.jpg" alt="Arte da oferta Duas Camas Elásticas, R$ 180,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Dobro de diversão</p>
+          <h3>Duas Camas Elásticas</h3>
+          <p class="oprice"><small>R$</small>180<small>,00</small></p>
+          <ul class="checks"><li>2 camas elásticas com rede de proteção</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Duas Camas Elásticas">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/cama-elastica.jpg" alt="Arte da oferta Cama Elástica, R$ 100,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Avulso</p>
+          <h3>Cama Elástica</h3>
+          <p class="oprice"><small>R$</small>100<small>,00</small></p>
+          <ul class="checks"><li>1 cama elástica com rede de proteção</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Cama Elástica">Reservar este</a>
+        </div>
+      </article>
+      <article class="offer">
+        <figure><img src="combos/piscina-bolinha.jpg" alt="Arte da oferta Piscina de Bolinha, R$ 100,00" width="900" height="600" loading="lazy"></figure>
+        <div class="otxt">
+          <p class="oeyebrow">Avulso</p>
+          <h3>Piscina de Bolinha</h3>
+          <p class="oprice"><small>R$</small>100<small>,00</small></p>
+          <ul class="checks"><li>1 piscina de bolinhas com cobertura</li></ul>
+          <a class="btn btn-main" href="#contato" data-oferta="Piscina de Bolinha">Reservar este</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="proof">
+  <div class="wrap">
+    <div class="num">+200</div>
+    <div>
+      <h2>Mais de 200 clientes já fizeram festa com a gente</h2>
+      <p>Aniversários, festas de escola, eventos de empresa e confraternizações em Chapecó e região. Cada entrega é feita com cuidado para que a sua única preocupação seja aproveitar.</p>
+    </div>
+  </div>
+</section>
+
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do pedido à festa em quatro passos</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Escolha</h3><p>Veja os combos e separe o que combina com a sua festa.</p></li>
+      <li><h3>Reserve</h3><p>Chame no WhatsApp com a data, o horário e o endereço. A gente confirma a disponibilidade e o valor.</p></li>
+      <li><h3>Entregamos e montamos</h3><p>Chegamos antes da festa e deixamos tudo pronto e seguro.</p></li>
+      <li><h3>Buscamos</h3><p>No horário combinado, recolhemos tudo. Você não precisa se preocupar com nada.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <div class="head" style="margin:0">
+      <p class="eyebrow">Reserve sua data</p>
+      <h2>Vamos montar a sua festa?</h2>
+      <p>As datas de fim de semana costumam lotar. Chame no WhatsApp e garanta seus brinquedos.</p>
+    </div>
+    <div class="card">
+      <div class="row" id="ziprow" hidden><span>WhatsApp</span><strong id="zap"></strong></div>
+      <div class="row"><span>Atendimento</span><strong>Chapecó e região</strong></div>
+      <div class="row"><span>Endereço</span><strong>Rua Francisco Dias Velho, 824D · Passo dos Fortes, Chapecó/SC</strong></div>
+      <a class="btn btn-main" id="zapbtn" href="https://wa.me/" target="_blank" rel="noopener" style="justify-self:start" hidden>Chamar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="stripe" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Divertidos Brinquedos · Aluguel de brinquedos para festas</span>
+    <span>Chapecó · SC</span>
+  </div>
+</footer>
+<script>
+/* Coloque aqui o WhatsApp: só números, com 55 + DDD. Ex.: 5549999999999 */
+var WHATSAPP = "";
+var EXIBIR = "";
+if (WHATSAPP) {
+  var link = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Olá! Vim pelo site e quero reservar brinquedos para minha festa.");
+  document.querySelectorAll('a[href="#contato"].btn-main').forEach(function(a){
+    var o = a.getAttribute("data-oferta");
+    a.href = o ? "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent("Olá! Vim pelo site e quero reservar o " + o + ".") : link;
+    a.target = "_blank"; a.rel = "noopener"; });
+  var b = document.getElementById("zapbtn"); b.href = link; b.hidden = false;
+  document.getElementById("zap").textContent = EXIBIR || WHATSAPP;
+  document.getElementById("ziprow").hidden = false;
+}
+</script>
+</body>
+</html>
