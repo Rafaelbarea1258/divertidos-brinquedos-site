@@ -79,7 +79,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .burst .big{font-family:var(--display);font-weight:800;font-size:clamp(4.4rem,10.5vw,7rem);line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
 .burst .small{font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;color:var(--ink);margin-top:4px}
 @keyframes pop{from{transform:scale(.9)}to{transform:scale(1)}}
-@media (max-width:820px){.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.burst{width:min(80%,290px)}}
+@media (max-width:820px){.hero .dots{display:none}.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.burst{width:min(80%,290px)}}
 
 .ribbon{background:var(--yellow);color:var(--ink);text-align:center;padding-block:14px;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.5rem)}
 .ribbon b{color:var(--red)}
@@ -186,9 +186,10 @@ section{padding-block:76px}
 .faq{background:var(--soft)}
 
 /* botão fixo */
+.fab.show{opacity:1;pointer-events:auto;transform:none}
 .fab{display:none}
 @media (max-width:720px){
-  .fab{display:flex;justify-content:center;position:fixed;z-index:20;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  .fab{display:flex;opacity:0;pointer-events:none;transform:translateY(20px);transition:opacity .2s,transform .2s;justify-content:center;position:fixed;z-index:20;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px))}
   footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 }
 
@@ -534,6 +535,11 @@ if (CONFIG.whatsapp) {
   }, { threshold: 0.5 });
   els.forEach(function(el){ io.observe(el); });
 })();
+</script>
+<script>
+/* botão fixo aparece depois que o cliente passa do topo */
+(function(){var f=document.querySelector(".fab"),h=document.querySelector(".hero");if(!f||!h)return;
+function u(){f.classList.toggle("show",window.scrollY>h.offsetHeight-80)}window.addEventListener("scroll",u,{passive:true});u();})();
 </script>
 </body>
 </html>
