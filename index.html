@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Aluguel de brinquedos para festas em Chapecó e região. Mais de 200 clientes atendidos. Combos a partir de R$ 100,00.">
+<meta name="description" content="Aluguel de brinquedos e decoração Pegue e Monte em Chapecó e região. Mais de 200 clientes atendidos. Combos a partir de R$ 100,00.">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Divertidos Brinquedos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -135,6 +135,22 @@ section{padding-block:76px}
 @media (max-width:960px){.ogrid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.ogrid{grid-template-columns:1fr}.offer.featured{grid-template-columns:1fr}.offer.featured figure{aspect-ratio:3/2;height:auto}.offer.featured .otxt{padding:22px}}
 
+
+/* pegue e monte */
+.kgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.kit{background:#fff;border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;box-shadow:0 10px 26px #15264d14;border:2px solid var(--line);min-width:0;transition:transform .15s}
+.kit:hover{transform:translateY(-4px)}
+.kit figure{margin:0;aspect-ratio:3/4;max-width:100%;overflow:hidden;position:relative}
+.kit figure img{display:block;width:100%;height:100%;object-fit:cover}
+.kbadge{position:absolute;left:12px;top:12px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.ktxt{padding:16px 20px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
+.ktxt h3{font-size:1.35rem;font-weight:800;flex:1 1 100%}
+.kprice{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1;color:var(--red);font-variant-numeric:tabular-nums}
+.kprice small{font-size:1rem;color:var(--ink);margin-inline:2px}
+.ktxt .btn{padding:.6em 1.1em}
+@media (max-width:960px){.kgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.kgrid{grid-template-columns:1fr}}
+
 /* prova vermelha */
 .proof{background:var(--red);color:#fff}
 .proof .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -176,6 +192,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
     <a class="logo word" href="#inicio" aria-label="Divertidos Brinquedos, início"><span>D</span><span>i</span><span>v</span><span>e</span><span>r</span><span>t</span><span>i</span><span>d</span><span>o</span><span>s</span> <span>B</span><span>r</span><span>i</span><span>n</span><span>q</span><span>u</span><span>e</span><span>d</span><span>o</span><span>s</span></a>
     <ul>
       <li><a href="#combo">Combos e preços</a></li>
+      <li><a href="#pegue-e-monte">Pegue e Monte</a></li>
       <li><a href="#como-funciona">Como funciona</a></li>
       <li><a href="#contato">Contato</a></li>
       <li><a class="btn btn-main" href="#contato">Reservar</a></li>
@@ -203,7 +220,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   </div>
 </div>
 <div class="stripe" aria-hidden="true"></div>
-<div class="ribbon">Combos a partir de <b>R$ 100,00</b> · Plus Super Combo por <b>R$ 200,00</b></div>
+<div class="ribbon">Combos a partir de <b>R$ 100,00</b> · Pegue e Monte por <b>R$ 100,00</b></div>
 
 <section class="offers" id="combo">
   <div class="wrap">
@@ -281,6 +298,66 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
           <p class="oprice"><small>R$</small>100<small>,00</small></p>
           <ul class="checks"><li>1 piscina de bolinhas com cobertura</li></ul>
           <a class="btn btn-main" href="#contato" data-oferta="Piscina de Bolinha">Reservar este</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="kits" id="pegue-e-monte">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Pegue e Monte</p>
+      <h2>Decoração temática para montar em casa</h2>
+      <p>Você retira a decoração, monta a sua festa e devolve depois. Escolha o tema preferido da criança.</p>
+    </div>
+    <div class="kgrid">
+      <article class="kit">
+        <figure><img src="pegue/gabby.jpg" alt="Decoração Pegue e Monte tema A Casa Mágica da Gabby" width="660" height="880" loading="lazy"></figure>
+        <div class="ktxt">
+          <h3>A Casa Mágica da Gabby</h3>
+          <p class="kprice"><small>R$</small>100<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte A Casa Mágica da Gabby">Reservar</a>
+        </div>
+      </article>
+      <article class="kit">
+        <figure><img src="pegue/patrulha-canina.jpg" alt="Decoração Pegue e Monte tema Patrulha Canina" width="660" height="880" loading="lazy"></figure>
+        <div class="ktxt">
+          <h3>Patrulha Canina</h3>
+          <p class="kprice"><small>R$</small>100<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte Patrulha Canina">Reservar</a>
+        </div>
+      </article>
+      <article class="kit">
+        <figure><img src="pegue/sonic.jpg" alt="Decoração Pegue e Monte tema Sonic" width="660" height="880" loading="lazy"></figure>
+        <div class="ktxt">
+          <h3>Sonic</h3>
+          <p class="kprice"><small>R$</small>100<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte Sonic">Reservar</a>
+        </div>
+      </article>
+      <article class="kit">
+        <figure><img src="pegue/safari.jpg" alt="Decoração Pegue e Monte tema Safári" width="660" height="880" loading="lazy"><span class="kbadge">Com arco romano</span></figure>
+        <div class="ktxt">
+          <h3>Safári</h3>
+          <p class="kprice"><small>R$</small>130<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte Safári">Reservar</a>
+        </div>
+      </article>
+      <article class="kit">
+        <figure><img src="pegue/arraia.jpg" alt="Decoração Pegue e Monte tema Arraiá" width="660" height="880" loading="lazy"></figure>
+        <div class="ktxt">
+          <h3>Arraiá</h3>
+          <p class="kprice"><small>R$</small>100<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte Arraiá">Reservar</a>
+        </div>
+      </article>
+      <article class="kit">
+        <figure><img src="pegue/nayan.jpg" alt="Decoração Pegue e Monte tema Nayan Por Aí" width="660" height="880" loading="lazy"></figure>
+        <div class="ktxt">
+          <h3>Nayan Por Aí</h3>
+          <p class="kprice"><small>R$</small>100<small>,00</small></p>
+          <a class="btn btn-main" href="#contato" data-oferta="Pegue e Monte Nayan Por Aí">Reservar</a>
         </div>
       </article>
     </div>
