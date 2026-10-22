@@ -124,7 +124,7 @@ section{padding-block:76px}
 .offer:hover{transform:translateY(-4px)}
 .offer:nth-child(6n+2){--c:var(--red)}.offer:nth-child(6n+3){--c:var(--yellow)}.offer:nth-child(6n+4){--c:var(--green)}.offer:nth-child(6n+5){--c:var(--orange)}.offer:nth-child(6n){--c:var(--purple)}.offer:nth-child(7){--c:var(--blue)}
 .offer figure{margin:0;aspect-ratio:3/2;max-width:100%;overflow:hidden}
-.offer figure img{display:block;width:100%;height:100%;object-fit:cover}
+.offer figure img{display:block;width:100%;height:100%;object-fit:contain;background:#0f4f55}
 .otxt{padding:20px 22px 24px;display:grid;gap:4px;align-content:start}
 .otxt .btn{justify-self:start;margin-top:auto}
 .oeyebrow{font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
@@ -134,7 +134,7 @@ section{padding-block:76px}
 .offer .checks{margin:12px 0 18px;font-size:.98rem;gap:7px}
 .offer .checks li::before{width:22px;height:22px;font-size:.78rem}
 .offer.featured{grid-column:1/-1;grid-template-columns:1.25fr 1fr;grid-template-rows:auto;--c:var(--red)}
-.offer.featured figure{aspect-ratio:auto;height:100%}
+.offer.featured figure{aspect-ratio:3/2;height:auto;align-self:center}
 .offer.featured .otxt{padding:32px;align-content:center}
 .offer.featured h3{font-size:clamp(1.9rem,4vw,2.8rem)}
 .offer.featured .oprice{font-size:3.4rem}
@@ -150,7 +150,7 @@ section{padding-block:76px}
 .kit{background:#fff;border-radius:22px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;box-shadow:0 10px 26px #15264d14;border:2px solid var(--line);min-width:0;transition:transform .15s}
 .kit:hover{transform:translateY(-4px)}
 .kit figure{margin:0;aspect-ratio:3/4;max-width:100%;overflow:hidden;position:relative}
-.kit figure img{display:block;width:100%;height:100%;object-fit:cover}
+.kit figure img{display:block;width:100%;height:100%;object-fit:contain;background:var(--soft)}
 .kbadge{position:absolute;left:12px;top:12px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
 .ktxt{padding:16px 20px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px}
 .ktxt h3{font-size:1.35rem;font-weight:800;flex:1 1 100%}
@@ -489,8 +489,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
    CONFIGURAÇÃO DO CLIENTE: troque só aqui para adaptar o site
    ================================================================ */
 var CONFIG = {
-  whatsapp: "",            // só números, com 55 + DDD. Ex.: "5549999999999"
-  whatsappExibir: "",      // como aparece na tela. Ex.: "(49) 99999-9999"
+  whatsapp: "5549999475887",            // só números, com 55 + DDD. Ex.: "5549999999999"
+  whatsappExibir: "(49) 99947-5887",      // como aparece na tela. Ex.: "(49) 99999-9999"
   mensagem: "Olá! Vim pelo site e quero reservar brinquedos para minha festa.",
   clientes: 200,           // número do contador "+200 clientes atendidos"
   linkReserva: "https://divertidosbrinquedos.netlify.app/?catalogo=1",  // para onde vão os botões de reserva
