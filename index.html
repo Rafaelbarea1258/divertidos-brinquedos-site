@@ -151,6 +151,8 @@ section{padding-block:76px}
 @media (max-width:960px){.kgrid{grid-template-columns:1fr 1fr}}
 @media (max-width:560px){.kgrid{grid-template-columns:1fr}}
 
+.count.done{animation:bump .35s ease-out}
+@keyframes bump{50%{transform:scale(1.12)}}
 /* prova vermelha */
 .proof{background:var(--red);color:#fff}
 .proof .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -214,7 +216,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       </div>
     </div>
     <div class="burst" role="img" aria-label="Mais de 200 clientes atendidos">
-      <div class="big">+200</div>
+      <div class="big count" data-to="200">+200</div>
       <div class="small">clientes atendidos</div>
     </div>
   </div>
@@ -366,7 +368,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 
 <section class="proof">
   <div class="wrap">
-    <div class="num">+200</div>
+    <div class="num count" data-to="200">+200</div>
     <div>
       <h2>Mais de 200 clientes já fizeram festa com a gente</h2>
       <p>Aniversários, festas de escola, eventos de empresa e confraternizações em Chapecó e região. Cada entrega é feita com cuidado para que a sua única preocupação seja aproveitar.</p>
@@ -427,6 +429,32 @@ if (WHATSAPP) {
   document.getElementById("zap").textContent = EXIBIR || WHATSAPP;
   document.getElementById("ziprow").hidden = false;
 }
+</script>
+
+<script>
+/* Contagem rápida de 0 até 200 */
+(function(){
+  var els = document.querySelectorAll(".count");
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  function run(el){
+    if (el.dataset.ran) return; el.dataset.ran = "1";
+    var to = +el.dataset.to, dur = 1100, t0 = null;
+    el.textContent = "+0";
+    function step(t){
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = "+" + Math.round(e * to);
+      if (p < 1) requestAnimationFrame(step); else el.classList.add("done");
+    }
+    requestAnimationFrame(step);
+  }
+  if (!("IntersectionObserver" in window)) { els.forEach(run); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
+  }, { threshold: 0.5 });
+  els.forEach(function(el){ io.observe(el); });
+})();
 </script>
 </body>
 </html>
