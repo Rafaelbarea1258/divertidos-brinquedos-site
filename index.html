@@ -491,6 +491,7 @@ var CONFIG = {
   whatsapp: "5549999475887",            // só números, com 55 + DDD. Ex.: "5549999999999"
   whatsappExibir: "(49) 99947-5887",      // como aparece na tela. Ex.: "(49) 99999-9999"
   mensagem: "Olá! Vim pelo site e quero reservar brinquedos para minha festa.",
+  site: "https://divertidosbrinquedos-site.netlify.app", // endereço do site (usado no link com a foto do combo)
   clientes: 200,           // número do contador "+200 clientes atendidos"
   reservarPor: "whatsapp", // "whatsapp" ou "link"
   linkReserva: "https://divertidosbrinquedos.netlify.app/?catalogo=1",  // usado quando reservarPor = "link"
@@ -502,7 +503,10 @@ document.querySelectorAll(".count").forEach(function(el){ el.dataset.to = CONFIG
 document.querySelectorAll("a[data-reserva]").forEach(function(a){
   if (CONFIG.reservarPor === "whatsapp" && CONFIG.whatsapp) {
     var o = a.getAttribute("data-oferta");
-    a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(o ? "Olá! Vim pelo site e quero reservar o " + o + "." : CONFIG.mensagem);
+    var img = a.closest("article") && a.closest("article").querySelector("img");
+    var slug = img ? img.getAttribute("src").split("/").pop().replace(/\.[a-z]+$/i, "") : "";
+    var pg = slug && CONFIG.site ? "\n" + CONFIG.site.replace(/\/$/, "") + "/r/" + slug + "/" : "";
+    a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(o ? "Olá! Vim pelo site e quero reservar o " + o + "." + pg : CONFIG.mensagem);
   } else { a.href = CONFIG.linkReserva; a.removeAttribute("target"); }
 });
 var end = document.getElementById("endereco"); if (end) end.textContent = CONFIG.endereco;
