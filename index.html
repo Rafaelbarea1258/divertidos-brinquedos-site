@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Aluguel de brinquedos e decoração Pegue e Monte para festas em Chapecó e região. Mais de 200 clientes atendidos. Combos a partir de R$ 100,00.">
 <meta name="theme-color" content="#1565d8">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cellipse cx='32' cy='26' rx='20' ry='22' fill='%23e52b2b'/%3E%3Cpath d='M28 48l4 5 4-5z' fill='%23e52b2b'/%3E%3Cpath d='M32 53c-3 4 3 6 0 10' stroke='%2315264d' stroke-width='2' fill='none'/%3E%3Cellipse cx='25' cy='18' rx='5' ry='7' fill='%23fff' opacity='.6'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="logo-sm.webp">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:title" content="Divertidos Brinquedos · Aluguel de brinquedos em Chapecó">
@@ -47,7 +48,8 @@ a{color:inherit}
 header{background:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;box-shadow:0 2px 14px #15264d14}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:#fff}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px}
-.logo{text-decoration:none;font-size:1.5rem;line-height:1;-webkit-text-stroke:.4px #15264d33}
+.logo{display:block;line-height:0}
+.logo img{width:62px;height:62px;margin-block:-6px;filter:drop-shadow(0 2px 4px #15264d22)}
 .nav ul{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0;font-weight:800;font-size:.95rem}
 .nav ul a{text-decoration:none;color:var(--ink)}
 .nav ul a:not(.btn):hover{color:var(--blue)}
@@ -72,18 +74,19 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .eyebrow{color:var(--yellow)}
 .hero p.lead{font-size:1.15rem;max-width:38ch;margin-top:18px;color:#e4edff}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.showcase{position:relative;justify-self:end;width:min(100%,520px);padding-block:20px 44px;animation:rise .6s ease-out both}
-.shot{margin:0;border-radius:24px;overflow:hidden;border:6px solid #fff;box-shadow:0 30px 60px #0a2a6b59;transform:rotate(2deg);aspect-ratio:3/2;max-width:100%}
-.shot img{display:block;width:100%;height:100%;object-fit:cover}
-.stat{position:absolute;left:-28px;bottom:0;background:#fff;color:var(--ink);border-radius:18px;padding:14px 22px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:0 18px 40px #0a2a6b47}
+.showcase{position:relative;justify-self:center;width:min(100%,440px);padding-block:10px 30px;animation:rise .6s ease-out both}
+.shot{margin:0;aspect-ratio:1;max-width:100%;animation:float 6s ease-in-out infinite}
+.shot img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 26px 40px #0a2a6b66)}
+@keyframes float{50%{transform:translateY(-10px)}}
+.stat{position:absolute;left:-40px;bottom:6%;background:#fff;color:var(--ink);border-radius:18px;padding:14px 22px 14px 14px;display:flex;gap:14px;align-items:center;box-shadow:0 18px 40px #0a2a6b47}
 .stat .ico{flex:none;width:54px;height:54px;border-radius:14px;background:var(--red);display:grid;place-items:center}
 .stat b{display:block;font-family:var(--display);font-weight:800;font-size:2.5rem;line-height:1;color:var(--red);font-variant-numeric:tabular-nums;min-width:3.2ch}
 .stat span{display:block;font-size:.85rem;font-weight:700;line-height:1.3;color:var(--muted);max-width:17ch}
-.tag{position:absolute;right:-14px;top:4px;background:var(--yellow);color:var(--ink);font-weight:800;font-size:.95rem;padding:8px 16px;border-radius:999px;box-shadow:0 10px 24px #0a2a6b38;transform:rotate(4deg)}
+.tag{position:absolute;right:-10px;top:8%;background:var(--yellow);color:var(--ink);font-weight:800;font-size:.95rem;padding:8px 16px;border-radius:999px;box-shadow:0 10px 24px #0a2a6b38;transform:rotate(4deg)}
 .tag b{color:var(--red)}
 @keyframes rise{from{opacity:.4;transform:translateY(14px)}to{opacity:1;transform:none}}
 @keyframes pop{from{transform:scale(.9)}to{transform:scale(1)}}
-@media (max-width:820px){.hero .dots{display:none}.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.showcase{justify-self:stretch;width:100%;padding-block:14px 40px}.stat{left:10px}.tag{right:6px}}
+@media (max-width:820px){.hero .dots{display:none}.hero .wrap{grid-template-columns:1fr;padding-block:40px 56px}.showcase{width:min(100%,340px);padding-block:6px 40px}.stat{left:-6px;bottom:0}.tag{right:-6px;top:2%}}
 
 .ribbon{background:var(--yellow);color:var(--ink);text-align:center;padding-block:14px;font-family:var(--display);font-weight:800;font-size:clamp(1.1rem,2.6vw,1.5rem)}
 .ribbon b{color:var(--red)}
@@ -235,7 +238,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
 <body>
 <header>
   <div class="wrap nav">
-    <a class="logo word" href="#inicio" aria-label="Divertidos Brinquedos, início"><span>D</span><span>i</span><span>v</span><span>e</span><span>r</span><span>t</span><span>i</span><span>d</span><span>o</span><span>s</span> <span>B</span><span>r</span><span>i</span><span>n</span><span>q</span><span>u</span><span>e</span><span>d</span><span>o</span><span>s</span></a>
+    <a class="logo" href="#inicio" aria-label="Divertidos Brinquedos, início"><img src="logo-sm.webp" alt="Divertidos Brinquedos" width="144" height="144"></a>
     <ul>
       <li><a href="#combo">Combos e preços</a></li>
       <li><a href="#pegue-e-monte">Pegue e Monte</a></li>
@@ -261,7 +264,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       </div>
     </div>
     <div class="showcase">
-      <figure class="shot"><img src="combos/plus-super-combo.jpg" alt="Plus Super Combo da Divertidos Brinquedos: cama elástica, piscina de bolinhas, escorregador e cavalinhos" width="900" height="600"></figure>
+      <figure class="shot"><img src="logo.webp" alt="Logo da Divertidos Brinquedos" width="560" height="560"></figure>
       <div class="stat">
         <span class="ico" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 3 5 6.6 5c2.1 0 3.6 1.2 5.4 3.2C13.8 6.2 15.3 5 17.4 5 21 5 23 8.6 21.6 11.8 19.5 16.4 12 21 12 21z" fill="#fff"/></svg></span>
         <div><b class="count" data-to="200">+200</b><span>clientes atendidos em Chapecó e região</span></div>
