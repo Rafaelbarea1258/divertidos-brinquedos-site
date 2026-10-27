@@ -22,3 +22,10 @@ Feito para a Divertidos Brinquedos e pronto para ser adaptado a outros clientes.
 
 Conecte o repositório a um projeto no Netlify (publish directory `.`).
 Cada alteração enviada para a branch `main` é publicada automaticamente.
+
+## Avaliações dos clientes
+
+- O formulário "Deixe sua avaliação" envia para o Netlify (Forms › avaliacoes).
+- As avaliações só aparecem no site depois de aprovadas: copie a avaliação para o
+  arquivo `reviews.json`, no formato:
+  `[{"nome": "Ana", "nota": 5, "alugou": "Plus Super Combo", "comentario": "Tudo perfeito!"}]`

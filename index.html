@@ -202,6 +202,37 @@ section{padding-block:76px}
   footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 }
 
+
+/* avaliações */
+.rv-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+.rv-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;min-width:0}
+.rv-card{background:#fff;border:2px solid var(--line);border-radius:20px;padding:22px;display:grid;gap:10px;align-content:start}
+.rv-stars{color:var(--yellow);font-size:1.3rem;letter-spacing:2px;-webkit-text-stroke:.5px #c99a00}
+.rv-stars .off{color:var(--line);-webkit-text-stroke:0}
+.rv-card p{color:var(--ink)}
+.rv-who{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:.9rem;color:var(--muted)}
+.rv-who b{color:var(--ink);font-size:1rem}
+.rv-empty{grid-column:1/-1;background:#fff;border:2px dashed var(--line);border-radius:20px;padding:32px;text-align:center;display:grid;gap:8px;justify-items:center}
+.rv-empty p{color:var(--muted)}
+.rv-form{background:#fff;border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:8px 8px 0 var(--blue)}
+.rv-form h3{font-size:1.5rem;font-weight:800}
+.rv-hp{position:absolute;left:-9999px}
+.rv-rate{border:0;margin:0;padding:0}
+.rv-rate legend{font-weight:800;font-size:.95rem;padding:0;margin-bottom:4px}
+.rv-rate-row{display:inline-flex;flex-direction:row-reverse;gap:2px}
+.rv-rate input{position:absolute;opacity:0;width:1px;height:1px}
+.rv-rate label{font-size:2.2rem;line-height:1;color:var(--line);cursor:pointer;padding:2px}
+.rv-rate label:hover,.rv-rate label:hover~label,.rv-rate input:checked~label{color:var(--yellow)}
+.rv-rate input:focus-visible+label{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
+.rv-field{display:grid;gap:6px;font-weight:800;font-size:.95rem}
+.rv-field span{font-weight:600;color:var(--muted)}
+.rv-field input,.rv-field textarea{font:inherit;font-weight:400;font-size:1rem;color:var(--ink);background:var(--soft);border:2px solid var(--line);border-radius:12px;padding:11px 13px;width:100%}
+.rv-field input:focus,.rv-field textarea:focus{outline:none;border-color:var(--blue);background:#fff}
+.rv-form .btn{justify-self:start;border:0;cursor:pointer;font:inherit;font-weight:800}
+.rv-msg{font-weight:700;color:var(--green)}
+.rv-msg.err{color:var(--red)}
+@media (max-width:860px){.rv-layout{grid-template-columns:1fr}}
+
 /* prova vermelha */
 .proof{background:var(--red);color:#fff}
 .proof .wrap{display:grid;grid-template-columns:auto 1fr;gap:44px;align-items:center}
@@ -245,6 +276,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       <li><a href="#combo">Combos e preços</a></li>
       <li><a href="#pegue-e-monte">Pegue e Monte</a></li>
       <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#avaliacoes">Avaliações</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
       <li><a href="#contato">Contato</a></li>
       <li><a class="btn btn-main" href="https://wa.me/5549999475887" data-reserva target="_blank" rel="noopener">Reservar</a></li>
@@ -457,6 +489,50 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   </div>
 </section>
 
+<section class="reviews" id="avaliacoes">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Avaliações</p>
+      <h2>O que dizem nossos clientes</h2>
+      <p>Fez festa com a gente? Conte como foi. Sua avaliação ajuda outras famílias a escolher.</p>
+    </div>
+    <div class="rv-layout">
+      <div class="rv-list" id="rvList">
+        <div class="rv-empty" id="rvEmpty">
+          <div class="rv-stars" aria-hidden="true">★★★★★</div>
+          <p><b>Seja o primeiro a avaliar.</b> As avaliações dos clientes aparecem aqui.</p>
+        </div>
+      </div>
+      <form class="rv-form" name="avaliacoes" method="POST" data-netlify="true" netlify-honeypot="empresa" id="rvForm">
+        <input type="hidden" name="form-name" value="avaliacoes">
+        <p class="rv-hp"><label>Não preencha: <input name="empresa" id="rvHp"></label></p>
+        <h3>Deixe sua avaliação</h3>
+        <fieldset class="rv-rate">
+          <legend>Sua nota</legend>
+          <div class="rv-rate-row">
+            <input type="radio" id="nota5" name="nota" value="5" required><label for="nota5" title="5 estrelas">★</label>
+            <input type="radio" id="nota4" name="nota" value="4"><label for="nota4" title="4 estrelas">★</label>
+            <input type="radio" id="nota3" name="nota" value="3"><label for="nota3" title="3 estrelas">★</label>
+            <input type="radio" id="nota2" name="nota" value="2"><label for="nota2" title="2 estrelas">★</label>
+            <input type="radio" id="nota1" name="nota" value="1"><label for="nota1" title="1 estrela">★</label>
+          </div>
+        </fieldset>
+        <label class="rv-field" for="rvNome">Seu nome
+          <input id="rvNome" name="nome" type="text" required maxlength="60" placeholder="Ex.: Ana, mãe do Pedro">
+        </label>
+        <label class="rv-field" for="rvItem">O que você alugou <span>(opcional)</span>
+          <input id="rvItem" name="alugou" type="text" maxlength="80" placeholder="Ex.: Plus Super Combo">
+        </label>
+        <label class="rv-field" for="rvTexto">Como foi a experiência
+          <textarea id="rvTexto" name="comentario" required maxlength="500" rows="4" placeholder="Conte como foi a festa, a entrega, a montagem..."></textarea>
+        </label>
+        <button class="btn btn-main" type="submit" id="rvBtn">Enviar avaliação</button>
+        <p class="rv-msg" id="rvMsg" role="status" hidden></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section class="faq" id="duvidas">
   <div class="wrap">
     <div class="head">
@@ -567,6 +643,37 @@ if (CONFIG.whatsapp) {
 /* botão fixo aparece depois que o cliente passa do topo */
 (function(){var f=document.querySelector(".fab"),h=document.querySelector(".hero");if(!f||!h)return;
 function u(){f.classList.toggle("show",window.scrollY>h.offsetHeight-80)}window.addEventListener("scroll",u,{passive:true});u();})();
+</script>
+
+<script>
+/* Avaliações: mostra as aprovadas (reviews.json) e envia novas para aprovação */
+(function(){
+  var list=document.getElementById("rvList"), empty=document.getElementById("rvEmpty");
+  function esc(t){var d=document.createElement("div");d.textContent=t==null?"":String(t);return d.innerHTML;}
+  fetch("reviews.json",{cache:"no-store"}).then(function(r){return r.ok?r.json():[];}).then(function(rs){
+    if(!Array.isArray(rs)||!rs.length) return;
+    empty.hidden=true;
+    rs.forEach(function(r){
+      var n=Math.max(1,Math.min(5,parseInt(r.nota,10)||5));
+      var el=document.createElement("article"); el.className="rv-card";
+      el.innerHTML='<div class="rv-stars" role="img" aria-label="'+n+' de 5 estrelas">'+"★".repeat(n)+'<span class="off">'+"★".repeat(5-n)+'</span></div>'+
+        '<p>'+esc(r.comentario)+'</p><div class="rv-who"><b>'+esc(r.nome)+'</b>'+(r.alugou?'<span>'+esc(r.alugou)+'</span>':'')+'</div>';
+      list.appendChild(el);
+    });
+  }).catch(function(){});
+  var f=document.getElementById("rvForm"), msg=document.getElementById("rvMsg"), btn=document.getElementById("rvBtn");
+  f.addEventListener("submit",function(e){
+    e.preventDefault();
+    if(document.getElementById("rvHp").value) return;
+    btn.disabled=true; btn.textContent="Enviando...";
+    var body=new URLSearchParams(new FormData(f)).toString();
+    fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:body})
+      .then(function(r){ if(!r.ok) throw 0;
+        f.reset(); msg.className="rv-msg"; msg.textContent="Obrigado! Sua avaliação foi enviada e aparece aqui assim que for aprovada."; msg.hidden=false; })
+      .catch(function(){ msg.className="rv-msg err"; msg.textContent="Não foi possível enviar agora. Tente de novo em alguns minutos."; msg.hidden=false; })
+      .then(function(){ btn.disabled=false; btn.textContent="Enviar avaliação"; });
+  });
+})();
 </script>
 </body>
 </html>
