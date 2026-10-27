@@ -489,23 +489,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
   </div>
 </section>
 
-<section class="reviews" id="avaliacoes" hidden>
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Avaliações</p>
-      <h2>O que os clientes dizem</h2>
-    </div>
-    <div class="sum">
-      <div>
-        <div class="big"><span id="rv-media">0,0</span><small id="rv-total"></small></div>
-        <div class="stars" id="rv-stars"></div>
-      </div>
-      <div id="rv-bars"></div>
-    </div>
-    <div class="cards" id="rv-cards"></div>
-  </div>
-</section>
-
 <section id="como-funciona">
   <div class="wrap">
     <div class="head">
@@ -527,6 +510,13 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
       <p class="eyebrow">Avaliações</p>
       <h2>O que dizem nossos clientes</h2>
       <p>Fez festa com a gente? Conte como foi. Sua avaliação ajuda outras famílias a escolher.</p>
+    </div>
+    <div class="sum" id="rvResumo" hidden>
+      <div>
+        <div class="big"><span id="rv-media">0,0</span><small id="rv-total"></small></div>
+        <div class="stars" id="rv-stars"></div>
+      </div>
+      <div id="rv-bars"></div>
     </div>
     <div class="rv-layout">
       <div class="rv-list" id="rvList">
@@ -679,7 +669,8 @@ if (CONFIG.whatsapp) {
   var V={Ruim:1,Regular:2,Bom:4,Excelente:5}, CATS=["Atendimento","Brinquedos","Montagem e entrega"];
   function esc(t){return String(t==null?"":t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
   function stars(n){n=Math.max(0,Math.min(5,Math.round(n)));return "★★★★★".slice(0,n)+"☆☆☆☆☆".slice(0,5-n)}
-  var sec=document.getElementById("avaliacoes"); if(!sec) return;
+  var list=document.getElementById("rvList"), empty=document.getElementById("rvEmpty"), box=document.getElementById("rvResumo");
+  if(!list||!box) return;
   fetch(URL,{headers:{apikey:KEY}}).then(function(r){return r.ok?r.json():[]}).then(function(d){
     if(!d||!d.length) return;
     var media=d.reduce(function(t,a){return t+(a.nota||0)},0)/d.length;
@@ -689,10 +680,15 @@ if (CONFIG.whatsapp) {
     var cat={}; CATS.forEach(function(c){cat[c]={n:0,pos:0}});
     d.forEach(function(a){(a.destaques||[]).forEach(function(t){var p=String(t).split(": ");if(cat[p[0]]&&V[p[1]]){cat[p[0]].n++;if(V[p[1]]>=4)cat[p[0]].pos++}})});
     document.getElementById("rv-bars").innerHTML=CATS.filter(function(c){return cat[c].n}).map(function(c){var pc=Math.round(cat[c].pos/cat[c].n*100);return '<div class="bar"><span><em style="font-style:normal">'+c+'</em><em style="font-style:normal">'+pc+'% positivas</em></span><i><b style="width:'+pc+'%"></b></i></div>'}).join("");
-    document.getElementById("rv-cards").innerHTML=d.filter(function(a){return a.nota>=4}).slice(0,6).map(function(a){
-      return '<div class="rv"><strong>'+esc(a.nome||"Cliente")+'</strong><div class="stars">'+stars(a.nota)+'</div><ul>'+(a.destaques||[]).map(function(t){return "<li>"+esc(t)+"</li>"}).join("")+'</ul></div>';
-    }).join("");
-    sec.hidden=false;
+    box.hidden=false;
+    var bons=d.filter(function(a){return a.nota>=4}).slice(0,6);
+    if(bons.length&&empty) empty.hidden=true;
+    bons.forEach(function(a){
+      var n=Math.max(1,Math.min(5,parseInt(a.nota,10)||5));
+      var el=document.createElement("article"); el.className="rv-card";
+      el.innerHTML='<div class="rv-stars" role="img" aria-label="'+n+' de 5 estrelas">'+"★".repeat(n)+'<span class="off">'+"★".repeat(5-n)+'</span></div><div class="rv-who"><b>'+esc(a.nome||"Cliente")+'</b>'+(a.destaques||[]).map(function(t){return "<span>"+esc(t)+"</span>"}).join("")+'</div>';
+      list.appendChild(el);
+    });
   }).catch(function(){});
 })();
 </script>
